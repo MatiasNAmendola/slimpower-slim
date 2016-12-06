@@ -423,6 +423,8 @@ class MyConfig extends AbstractConfig
     }
 }
 
+```
+
 ##Security
 
 If you discover any security related issues, please email [soporte.esolutions@gmail.com](mailto:soporte.esolutions@gmail.com?subject=[SECURITY] Config Security Issue) instead of using the issue tracker.
