@@ -447,4 +447,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ##Example project
 
-Look at [slim-di](https://github.com/matiasnamendola/slimpower-slim-example).
+Look at [slimpower-slim-example](https://github.com/matiasnamendola/slimpower-slim-example).
