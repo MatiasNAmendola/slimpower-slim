@@ -442,8 +442,8 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://img.shields.io/packagist/v/matiasamendola/config.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/matiasamendola/config.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/matiasamendola/slimpower-slim
-[link-downloads]: https://packagist.org/packages/matiasamendola/slimpower-slim
+[link-packagist]: https://packagist.org/packages/matiasnamendola/slimpower-slim
+[link-downloads]: https://packagist.org/packages/matiasnamendola/slimpower-slim
 
 ##Example project
 
