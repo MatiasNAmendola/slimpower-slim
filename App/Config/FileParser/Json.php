@@ -10,7 +10,7 @@ use SlimPower\Config\Exception\ParseException;
  * @package    SlimPower
  * @subpackage Config
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/MatiasNAmendola/slimpower-slim
+ * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    MIT
  */
 class Json implements FileParserInterface {

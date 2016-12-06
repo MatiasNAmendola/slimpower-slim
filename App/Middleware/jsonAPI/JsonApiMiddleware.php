@@ -8,7 +8,7 @@ namespace SlimPower\Middleware\jsonApi;
  * @package    SlimPower
  * @subpackage Middleware
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/MatiasNAmendola/slimpower-slim
+ * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    MIT
  */
 
@@ -18,7 +18,7 @@ namespace SlimPower\Middleware\jsonApi;
  * @package    SlimPower
  * @subpackage View
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/MatiasNAmendola/slimpower-slim
+ * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    MIT
  */
 class JsonApiMiddleware extends \Slim\Middleware {

@@ -19,7 +19,7 @@ Additionally, this extension implements json API's with great ease.
 In terminal:
 
 ```sh
-    composer require MatiasNAmendola/slimpower-slim
+    composer require matiasnamendola/slimpower-slim
 ```
 
 Or you can add use this as your composer.json:
@@ -28,7 +28,7 @@ Or you can add use this as your composer.json:
     {
         "require": {
             "slim/slim": "2.*",
-            "MatiasNAmendola/slimpower-slim": "dev-master"
+            "matiasnamendola/slimpower-slim": "dev-master"
         }
     }
 
@@ -432,7 +432,7 @@ If you discover any security related issues, please email [soporte.esolutions@gm
 
 ##Credits
 
-- [Matías Nahuel Améndola](https://github.com/MatiasNAmendola)
+- [Matías Nahuel Améndola](https://github.com/matiasnamendola)
 
 
 ##License
@@ -447,4 +447,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ##Example project
 
-Look at [slim-di](https://github.com/MatiasNAmendola/slimpower-slim-example).
+Look at [slim-di](https://github.com/matiasnamendola/slimpower-slim-example).

@@ -8,7 +8,7 @@ namespace SlimPower\Libs;
  * @package    SlimPower
  * @subpackage Libs
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/MatiasNAmendola/slimpower-slim
+ * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    MIT
  */
 class Util {

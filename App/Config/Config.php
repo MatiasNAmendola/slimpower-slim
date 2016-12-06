@@ -12,7 +12,7 @@ use SlimPower\Config\Exception\EmptyDirectoryException;
  * @package    SlimPower
  * @subpackage Config
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/MatiasNAmendola/slimpower-slim
+ * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    MIT
  */
 class Config extends AbstractConfig {

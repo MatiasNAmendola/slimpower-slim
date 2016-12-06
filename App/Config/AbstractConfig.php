@@ -11,7 +11,7 @@ use Iterator;
  * @package    SlimPower
  * @subpackage Config
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/MatiasNAmendola/slimpower-slim
+ * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    MIT
  */
 abstract class AbstractConfig implements ArrayAccess, ConfigInterface, Iterator {

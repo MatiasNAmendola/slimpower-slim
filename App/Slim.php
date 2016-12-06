@@ -8,7 +8,7 @@ namespace SlimPower;
  * 
  * @package    SlimPower
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/MatiasNAmendola/slimpower-slim
+ * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    MIT
  */
 class Slim extends \Slim\Slim {

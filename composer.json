@@ -1,10 +1,10 @@
 {
-    "name": "MatiasNAmendola/slimpower-slim-controller",
+    "name": "matiasnamendola/slimpower-slim-controller",
     "description": "Dynamically instantiated controller classes for Slim Framework",
     "keywords": [
         "slim", "controller", "json", "API", "view", "middleware, config"
     ],
-    "homepage": "https://github.com/MatiasNAmendola/slimpower-slim-controller",
+    "homepage": "https://github.com/matiasnamendola/slimpower-slim-controller",
     "type": "library",
     "version": "0.0.1",
     "license": "MIT",
