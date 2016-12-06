@@ -433,6 +433,7 @@ If you discover any security related issues, please email [soporte.esolutions@gm
 ##Credits
 
 - [Matías Nahuel Améndola](https://github.com/matiasnamendola)
+- [Franco Soto](https://github.com/francosoto)
 
 
 ##License
