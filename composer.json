@@ -7,6 +7,7 @@
     "homepage": "https://github.com/matiasnamendola/slimpower-slim-controller",
     "type": "library",
     "version": "v0.0.1-alpha",
+    "minimum-stability": "alpha",
     "license": "MIT",
     "authors": [
         {
