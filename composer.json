@@ -1,0 +1,29 @@
+{
+    "name": "MatiasNAmendola/slimpower-slim-controller",
+    "description": "Dynamically instantiated controller classes for Slim Framework",
+    "keywords": [
+        "slim", "controller", "json", "API", "view", "middleware, config"
+    ],
+    "homepage": "https://github.com/MatiasNAmendola/slimpower-slim-controller",
+    "type": "library",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matias Nahuel Améndola",
+            "email": "soporte.esolutions@gmail.com",
+            "homepage": "http://node.software/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "slim/slim": "2.*",
+        "symfony/yaml": "v2.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "SlimPower"
+        }
+    }
+}

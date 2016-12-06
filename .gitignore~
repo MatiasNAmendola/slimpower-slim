@@ -1,0 +1,10 @@
+# -- NetBeans -----------------------------------------
+
+nbproject/
+
+# -- Composer -----------------------------------------
+
+composer.phar
+composer.lock
+
+vendor/
