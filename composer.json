@@ -1,5 +1,5 @@
 {
-    "name": "matiasnamendola/slimpower-slim-controller",
+    "name": "matiasnamendola/slimpower-slim",
     "description": "Dynamically instantiated controller classes for Slim Framework",
     "keywords": [
         "slim", "controller", "json", "API", "view", "middleware", "config"
