@@ -4,7 +4,7 @@
     "keywords": [
         "slim", "controller", "json", "API", "view", "middleware", "config"
     ],
-    "homepage": "https://github.com/matiasnamendola/slimpower-slim-controller",
+    "homepage": "https://github.com/matiasnamendola/slimpower-slim",
     "type": "library",
     "version": "v0.0.1-alpha",
     "minimum-stability": "alpha",
