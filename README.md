@@ -439,8 +439,8 @@ If you discover any security related issues, please email [soporte.esolutions@gm
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/matiasnamendola/config.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/matiasnamendola/config.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/MatiasNAmendola/slimpower-slim.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/MatiasNAmendola/slimpower-slim.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/matiasnamendola/slimpower-slim
 [link-downloads]: https://packagist.org/packages/matiasnamendola/slimpower-slim
