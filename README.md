@@ -1,7 +1,7 @@
 #SlimPower - Slim Controller
 
 [![Latest version][ico-version]][link-packagist]
-[comment]: # ([![Total Downloads][ico-downloads]][link-downloads])
+[comment]: # [![Total Downloads][ico-downloads]][link-downloads]
 
 [![Latest Stable Version](https://poser.pugx.org/matiasnamendola/slimpower-slim/version)](https://packagist.org/packages/matiasnamendola/slimpower-slim) 
 [![Latest Unstable Version](https://poser.pugx.org/matiasnamendola/slimpower-slim/v/unstable)](//packagist.org/packages/matiasnamendola/slimpower-slim) 
