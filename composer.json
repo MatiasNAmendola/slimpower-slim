@@ -2,7 +2,7 @@
     "name": "matiasnamendola/slimpower-slim",
     "description": "Dynamically instantiated controller classes for Slim Framework",
     "keywords": [
-        "slim", "controller", "json", "API", "view", "middleware", "config"
+        "slim", "controller", "json", "api"
     ],
     "homepage": "https://github.com/matiasnamendola/slimpower-slim",
     "type": "library",
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SlimPower\\": "src"
+            "SlimPower\\Slim\\": "src"
         }
     }
 }
