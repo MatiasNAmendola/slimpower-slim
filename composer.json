@@ -7,7 +7,7 @@
     "homepage": "https://github.com/matiasnamendola/slimpower-slim",
     "type": "library",
     "version": "v0.0.1-alpha",
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "license": "MIT",
     "authors": [
         {
