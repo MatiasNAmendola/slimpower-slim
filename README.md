@@ -1,7 +1,12 @@
 #SlimPower - Slim Controller
 
 [![Latest version][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
+[comment]: # ([![Total Downloads][ico-downloads]][link-downloads])
+
+[![Latest Stable Version](https://poser.pugx.org/matiasnamendola/slimpower-slim/version)](https://packagist.org/packages/matiasnamendola/slimpower-slim) 
+[![Latest Unstable Version](https://poser.pugx.org/matiasnamendola/slimpower-slim/v/unstable)](//packagist.org/packages/matiasnamendola/slimpower-slim) 
+[![Total Downloads](https://poser.pugx.org/matiasnamendola/slimpower-slim/downloads)](https://packagist.org/packages/matiasnamendola/slimpower-slim) 
+[![composer.lock available](https://poser.pugx.org/matiasnamendola/slimpower-slim/composerlock)]
 
 An extension to [Slim Framework][1] that allows you use to dynamically
 instantiated controllers with action methods wherever you would use a
