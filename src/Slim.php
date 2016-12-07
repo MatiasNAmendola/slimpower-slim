@@ -36,6 +36,16 @@ namespace SlimPower\Slim;
  */
 class Slim extends \Slim\Slim {
 
+    public function __construct(array $userSettings = array()) {
+        parent::__construct($userSettings);
+
+        $this->container->remove('request');
+
+        $this->container->singleton('request', function ($c) {
+            return new Http\ExtendedRequest($c['environment']);
+        });
+    }
+
     /**
      * Add a route as per the parent method, additionally supporting the syntax
      * "{controller class name}:{action method name}" as the last argument which
