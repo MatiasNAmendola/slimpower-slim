@@ -1,4 +1,4 @@
-#SlimPower - Slim Controller
+#SlimPower - Slim
 
 [![Latest version][ico-version]][link-packagist]
 [comment]: # ([![Total Downloads][ico-downloads]][link-downloads])
