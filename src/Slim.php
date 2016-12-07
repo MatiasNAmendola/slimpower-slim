@@ -1,12 +1,13 @@
 <?php
 
-namespace SlimPower;
+namespace SlimPower\Slim;
 
 /**
  * Override of \Slim\Slim to add the ability to dynamically create a controller
  * and call an action method on it.
  * 
  * @package    SlimPower
+ * @subpackage Slim
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
  * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    https://github.com/MatiasNAmendola/slimpower-slim/blob/master/LICENSE.md

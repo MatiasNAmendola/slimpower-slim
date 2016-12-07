@@ -1,12 +1,12 @@
 <?php
 
-namespace SlimPower\Libs;
+namespace SlimPower\Slim\Libs;
 
 /**
  * Utils
  *
  * @package    SlimPower
- * @subpackage Libs
+ * @subpackage Slim
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
  * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    https://github.com/MatiasNAmendola/slimpower-slim/blob/master/LICENSE.md

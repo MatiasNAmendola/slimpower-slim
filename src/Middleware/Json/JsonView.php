@@ -1,48 +1,15 @@
 <?php
 
-namespace SlimPower\Middleware\jsonApi;
+namespace SlimPower\Slim\Middleware\Json;
 
 /**
- * jsonAPI - Slim extension to implement fast JSON API's
+ * JsonView - view wrapper for json responses (with error code).
  *
  * @package    SlimPower
- * @subpackage View
+ * @subpackage Slim
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
  * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    https://github.com/MatiasNAmendola/slimpower-slim/blob/master/LICENSE.md
- * @since      0.0.1
- * 
- * MIT LICENSE
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
-/**
- * JsonApiView - view wrapper for json responses (with error code).
- *
- * @package    SlimPower
- * @subpackage View
- * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
- * @link       https://github.com/matiasnamendola/slimpower-slim
- * @license    https://github.com/MatiasNAmendola/slimpower-slim/blob/master/LICENSE.md
- * 
  * @since   0.0.1
  * 
  * MIT LICENSE
@@ -66,7 +33,7 @@ namespace SlimPower\Middleware\jsonApi;
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-class JsonApiView extends \Slim\View {
+class JsonView extends \Slim\View {
 
     /**
      * Bitmask consisting of <b>JSON_HEX_QUOT</b>,
@@ -111,7 +78,7 @@ class JsonApiView extends \Slim\View {
     private $dataOnly = false;
 
     /**
-     * Construct JsonApiView instance
+     * Construct JsonView instance
      * @param type $dataWrapper (optional) Wrapper for data in response
      * @param type $metaWrapper (optional) Wrapper for metadata in response
      */
@@ -122,7 +89,7 @@ class JsonApiView extends \Slim\View {
     }
 
     public function render($status = 200, $data = NULL) {
-        $app = \Slim\Slim::getInstance();
+        $app = \SlimPower\Slim\Slim::getInstance();
 
         $status = intval($status);
 
