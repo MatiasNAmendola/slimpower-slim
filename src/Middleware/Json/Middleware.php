@@ -43,7 +43,6 @@ class Middleware extends \Slim\Middleware {
     function __construct(\SlimPower\Slim\Slim $app, array $config = null) {
         $this->app = $app;
 
-        $app->view(new View($app));
         $defaultConfig = $this->getDefaultConfig();
 
         if (\is_array($config)) {
@@ -53,6 +52,11 @@ class Middleware extends \Slim\Middleware {
         }
 
         $app->config($config);
+
+        $dataWrapper = $app->config(Config::DataWraper);
+        $metaWrapper = $app->config(Config::MetaWrapper);
+
+        $app->view(new View($app, $dataWrapper, $metaWrapper));
 
         $this->catchErrors();
         $this->catchNotFound();
