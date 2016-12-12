@@ -3,14 +3,14 @@
 namespace SlimPower\Slim\Middleware\Json;
 
 /**
- * JsonView - view wrapper for json responses (with error code).
+ * View wrapper for json responses (with error code).
  *
  * @package    SlimPower
  * @subpackage Slim
  * @author     Matias Nahuel Améndola <soporte.esolutions@gmail.com>
  * @link       https://github.com/matiasnamendola/slimpower-slim
  * @license    https://github.com/MatiasNAmendola/slimpower-slim/blob/master/LICENSE.md
- * @since   0.0.1
+ * @since      0.0.1
  * 
  * MIT LICENSE
  *
@@ -33,23 +33,25 @@ namespace SlimPower\Slim\Middleware\Json;
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-class JsonView extends \Slim\View {
+class View extends \Slim\View {
 
     /**
-     * Bitmask consisting of <b>JSON_HEX_QUOT</b>,
-     * <b>JSON_HEX_TAG</b>,
-     * <b>JSON_HEX_AMP</b>,
-     * <b>JSON_HEX_APOS</b>,
-     * <b>JSON_NUMERIC_CHECK</b>,
-     * <b>JSON_PRETTY_PRINT</b>,
-     * <b>JSON_UNESCAPED_SLASHES</b>,
-     * <b>JSON_FORCE_OBJECT</b>,
-     * <b>JSON_UNESCAPED_UNICODE</b>.
-     * The behaviour of these constants is described on
-     * the JSON constants page.
-     * @var int
+     * Wrapper for data in response
+     * @var string
      */
-    public $encodingOptions = 0;
+    protected $dataWraper;
+
+    /**
+     * Wrapper for metadata in response
+     * @var string
+     */
+    protected $metaWrapper;
+
+    /**
+     * SlimPower instance
+     * @var \SlimPower\Slim\Slim 
+     */
+    protected $app;
 
     /**
      * Content-Type sent through the HTTP header.
@@ -57,41 +59,37 @@ class JsonView extends \Slim\View {
      * append ";charset=UTF-8" to force the charset
      * @var string
      */
-    public $contentType = 'application/json';
+    protected $contentType = 'application/json';
 
     /**
-     *
-     * @var string
+     * Whether to return only the data
+     * @var bool
      */
-    private $dataWraper;
-
-    /**
-     *
-     * @var string
-     */
-    private $metaWrapper;
+    protected $dataOnly = false;
 
     /**
      * 
-     * @var bool
+     * @param \SlimPower\Slim\Slim $app
+     * @param string $dataWrapper (optional) Wrapper for data in response
+     * @param string $metaWrapper (optional) Wrapper for metadata in response
      */
-    private $dataOnly = false;
+    public function __construct(\SlimPower\Slim\Slim $app, $dataWrapper = NULL, $metaWrapper = NULL) {
 
-    /**
-     * Construct JsonView instance
-     * @param type $dataWrapper (optional) Wrapper for data in response
-     * @param type $metaWrapper (optional) Wrapper for metadata in response
-     */
-    public function __construct($dataWrapper = NULL, $metaWrapper = NULL) {
         parent::__construct();
+        $this->app = $app;
         $this->dataWraper = $dataWrapper;
         $this->metaWrapper = $metaWrapper;
     }
 
-    public function render($status = 200, $data = NULL) {
-        $app = \SlimPower\Slim\Slim::getInstance();
-
-        $status = intval($status);
+    /**
+     * Render
+     * @param int|string $status (optional)
+     * @param array|null $data (optional)
+     * @return void
+     */
+    public function render($status = 200, $data = null) {
+        $app = $this->app;
+        $status = \intval($status);
 
         if ($this->dataWraper) {
             $response[$this->dataWraper] = $this->all();
@@ -116,20 +114,27 @@ class JsonView extends \Slim\View {
             }
 
             //append status code
-            if ($this->metaWrapper) {
-                $response[$this->metaWrapper]['status'] = $status;
-            } else {
-                $response['status'] = $status;
+
+            if ($app->config(Config::Status)) {
+                if ($this->metaWrapper) {
+                    $response[$this->metaWrapper]['status'] = $status;
+                } else {
+                    $response['status'] = $status;
+                }
             }
 
             //add flash messages
-            if (isset($this->data->flash) && is_object($this->data->flash)) {
+            if (isset($this->data->flash) && \is_object($this->data->flash)) {
+                // if (isset($response['flash']) && \is_object($response['flash'])) {
+
                 $flash = $this->data->flash->getMessages();
+
                 if ($this->dataWraper) {
                     unset($response[$this->dataWraper]['flash']);
                 } else {
                     unset($response['flash']);
                 }
+
                 if (count($flash)) {
                     if ($this->metaWrapper) {
                         $response[$this->metaWrapper]['flash'] = $flash;
@@ -147,13 +152,36 @@ class JsonView extends \Slim\View {
 
         $jsonp_callback = $app->request->get('callback', null);
 
+        /**
+         * Bitmask consisting of <b>JSON_HEX_QUOT</b>,
+         * <b>JSON_HEX_TAG</b>,
+         * <b>JSON_HEX_AMP</b>,
+         * <b>JSON_HEX_APOS</b>,
+         * <b>JSON_NUMERIC_CHECK</b>,
+         * <b>JSON_PRETTY_PRINT</b>,
+         * <b>JSON_UNESCAPED_SLASHES</b>,
+         * <b>JSON_FORCE_OBJECT</b>,
+         * <b>JSON_UNESCAPED_UNICODE</b>.
+         * The behaviour of these constants is described on
+         * the JSON constants page.
+         * @var int
+         */
+        $encodingOptions = $app->config(Config::JsonEncodeOptions);
+
+
+
         if ($jsonp_callback !== null) {
-            $app->response()->body($jsonp_callback . '(' . json_encode($response, $this->encodingOptions) . ')');
+            $body = $jsonp_callback . '(' . json_encode($response, $encodingOptions) . ')';
         } else {
-            $app->response()->body(json_encode($response, $this->encodingOptions));
+            $body = json_encode($response, $encodingOptions);
         }
 
-        $app->stop();
+        if ($status == 404) {
+            return $body;
+        } else {
+            $app->response()->body($body);
+            $app->stop();
+        }
     }
 
     /**
