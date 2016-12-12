@@ -168,8 +168,6 @@ class View extends \Slim\View {
          */
         $encodingOptions = $app->config(Config::JsonEncodeOptions);
 
-
-
         if ($jsonp_callback !== null) {
             $body = $jsonp_callback . '(' . json_encode($response, $encodingOptions) . ')';
         } else {
@@ -180,7 +178,6 @@ class View extends \Slim\View {
             return $body;
         } else {
             $app->response()->body($body);
-            $app->stop();
         }
     }
 
