@@ -42,7 +42,7 @@ abstract class Config {
     const Cors = 'json.cors';
     const ClearData = 'json.clear_data';
     const JsonEncodeOptions = 'json.json_encode_options';
-    const DataWraper = 'json.data_wraper';
+    const DataWraper = 'json.data_wrapper';
     const MetaWrapper = 'json.meta_wrapper';
 
 }
