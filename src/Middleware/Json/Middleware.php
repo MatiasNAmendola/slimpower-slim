@@ -53,7 +53,7 @@ class Middleware extends \Slim\Middleware {
 
         $app->config($config);
 
-        $dataWrapper = $app->config(Config::DataWraper);
+        $dataWrapper = $app->config(Config::DataWrapper);
         $metaWrapper = $app->config(Config::MetaWrapper);
 
         $app->view(new View($app, $dataWrapper, $metaWrapper));

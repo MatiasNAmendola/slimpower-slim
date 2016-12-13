@@ -39,7 +39,7 @@ class View extends \Slim\View {
      * Wrapper for data in response
      * @var string
      */
-    protected $dataWraper;
+    protected $dataWrapper;
 
     /**
      * Wrapper for metadata in response
@@ -77,7 +77,7 @@ class View extends \Slim\View {
 
         parent::__construct();
         $this->app = $app;
-        $this->dataWraper = $dataWrapper;
+        $this->dataWrapper = $dataWrapper;
         $this->metaWrapper = $metaWrapper;
     }
 
@@ -91,8 +91,8 @@ class View extends \Slim\View {
         $app = $this->app;
         $status = \intval($status);
 
-        if ($this->dataWraper) {
-            $response[$this->dataWraper] = $this->all();
+        if ($this->dataWrapper) {
+            $response[$this->dataWrapper] = $this->all();
         } else {
             $response = $this->all();
         }
@@ -129,8 +129,8 @@ class View extends \Slim\View {
 
                 $flash = $this->data->flash->getMessages();
 
-                if ($this->dataWraper) {
-                    unset($response[$this->dataWraper]['flash']);
+                if ($this->dataWrapper) {
+                    unset($response[$this->dataWrapper]['flash']);
                 } else {
                     unset($response['flash']);
                 }
