@@ -122,7 +122,7 @@ $app->add(new \SlimPower\Slim\Middleware\Json\JsonMiddleware());
 
 ### Example method
 
-all your requests will be returning a JSON output.
+All your requests will be returning a JSON output.
 the usage will be `$app->render( (int)$HTTP_CODE, (array)$DATA);`
 
 #### Example code
