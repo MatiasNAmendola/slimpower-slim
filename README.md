@@ -1,7 +1,7 @@
-#SlimPower - Slim
+# SlimPower - Slim
 
 [![Latest version][ico-version]][link-packagist]
-[comment]: # ([![Total Downloads][ico-downloads]][link-downloads])
+[![Total Downloads][ico-downloads]][link-downloads]
 
 [![Latest Stable Version](https://poser.pugx.org/matiasnamendola/slimpower-slim/version?format=flat-square)](https://packagist.org/packages/matiasnamendola/slimpower-slim) 
 [![Latest Unstable Version](https://poser.pugx.org/matiasnamendola/slimpower-slim/v/unstable?format=flat-square)](//packagist.org/packages/matiasnamendola/slimpower-slim) 
@@ -21,11 +21,11 @@ Additionally, this extension implements Json Middleware & View with great ease.
 
 [1]: http://www.slimframework.com/
 
-##Installation
+## Installation
 
 Look at [Installation File](INSTALLATION.md)
 
-##Usage - Dynamic controller instantiation
+## Usage - Dynamic controller instantiation
 
 Use the string format `{controller class name}:{action method name}`
 wherever you would usually use a closure:
@@ -51,7 +51,7 @@ $app = new \SlimPower\Slim\Slim();
 
 $app->container->singleton('App\IndexController', function ($container) {
     // Retrieve any required dependencies from the container and
-    // inject into the constructor of the controller
+    // inject into the constructor of the controller.
 
     return new \App\IndexController();
 });
@@ -59,7 +59,7 @@ $app->container->singleton('App\IndexController', function ($container) {
 $app->get('/', 'App\IndexController:index');
 ```
 
-###example controller
+### example controller
 
 *SlimPower - Slim Controller* will call the controller's `setApp()`, `setRequest()`
 and `setResponse()` methods if they exist and populate appropriately. It will
@@ -73,7 +73,7 @@ Hence, a typical controller may look like:
 namespace App;
 
 class IndexController {
-    // Optional properties
+    // Optional properties.
     protected $app;
     protected $request;
     protected $response;
@@ -86,7 +86,7 @@ class IndexController {
         echo "Hello, $name";
     }
 
-    // Optional setters
+    // Optional setters.
     public function setApp($app) {
         $this->app = $app;
     }
@@ -101,12 +101,12 @@ class IndexController {
 
     // Init
     public function init() {
-        // do things now that app, request and response are set.
+        // Do things now that app, request and response are set.
     }
 }
 ```
 
-##Usage - Json Middleware
+## Usage - Json Middleware
 
 To include the middleware and view you just have to load them using the default _Slim_ way.
 Read more about Slim Here (https://github.com/codeguy/Slim#getting-started)
@@ -120,12 +120,12 @@ $app->view(new \SlimPower\Slim\Middleware\Json\JsonView());
 $app->add(new \SlimPower\Slim\Middleware\Json\JsonMiddleware());
 ```
 
-###example method
+### Example method
 
 all your requests will be returning a JSON output.
 the usage will be `$app->render( (int)$HTTP_CODE, (array)$DATA);`
 
-####example code
+#### Example code
  
 ```php
 
@@ -137,7 +137,7 @@ the usage will be `$app->render( (int)$HTTP_CODE, (array)$DATA);`
 
 ```
 
-####example output
+#### Example output
 
 ```json
 {
@@ -147,7 +147,7 @@ the usage will be `$app->render( (int)$HTTP_CODE, (array)$DATA);`
 }
 ```
 
-###Errors
+### Errors
 
 To display an error just set the `error => true` in your data array.
 All requests will have an `error` param that defaults to false.
@@ -155,7 +155,7 @@ All requests will have an `error` param that defaults to false.
 ```php
 $app->get('/user/:id', function($id) use ($app) {
 
-    //your code here
+    // Your code here.
 
     $app->render(404, array(
         'error' => TRUE,
@@ -176,9 +176,9 @@ You can optionally throw exceptions, the middleware will catch all exceptions an
 ```php
 $app->get('/user/:id', function($id) use ($app) {
 
-    //your code here
+    // Your code here.
 
-    if(...){
+    if(...) {
         throw new \Exception("Something wrong with your request!");
     }
 });
@@ -192,11 +192,11 @@ $app->get('/user/:id', function($id) use ($app) {
 }
 ```
 
-###Embedding response data and metadata in separate containers
+### Embedding response data and metadata in separate containers
 
 It is possible to separate response metadata and business information in separate containers.
 
-####To make it possible just init JsonView with containers names
+#### To make it possible just init JsonView with containers names
 
 ```php
 require 'vendor/autoload.php';
@@ -207,7 +207,7 @@ $app->view(new \SlimPower\Slim\Middleware\Json\JsonView("resource", "meta"));
 $app->add(new \SlimPower\Slim\Middleware\Json\JsonMiddleware());
 ```
 
-####Response
+#### Response
 ```json
 {
     "resource":{
@@ -220,7 +220,7 @@ $app->add(new \SlimPower\Slim\Middleware\Json\JsonMiddleware());
 }
 ```
 
-###routing specific requests to the API
+### Routing specific requests to the API
 
 If your site is using regular HTML responses and you just want to expose an API point on a specific route,
 you can use Slim router middlewares to define this.
@@ -233,12 +233,12 @@ function jsonResponse(){
 }
 
 $app->get('/home',function() use($app){
-    //regular html response
+    // Regular HTML response.
     $app->render("template.tpl");
 });
 
 $app->get('/api','jsonResponse',function() use($app){
-    //this request will have full json responses
+    // This request will have full JSON responses.
 
     $app->render(200, array(
         'msg' => 'welcome to my API!',
@@ -247,23 +247,19 @@ $app->get('/api','jsonResponse',function() use($app){
 ```
 
 
-###middleware
+### Middleware
 
 The middleware will set some static routes for default requests.
 **if you dont want to use it**, you can copy its content code into your bootstrap file.
 
 ***IMPORTANT: remember to use `$app->config('debug', false);` or errors will still be printed in HTML***
 
-##Security
-
-If you discover any security related issues, please email [soporte.esolutions@gmail.com](mailto:soporte.esolutions@gmail.com?subject=[SECURITY] Config Security Issue) instead of using the issue tracker.
-
-##Credits
+## Credits
 
 - [Matías Nahuel Améndola](https://github.com/matiasnamendola)
 - [Franco Soto](https://github.com/francosoto)
 
-##License
+## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
@@ -273,6 +269,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-packagist]: https://packagist.org/packages/matiasnamendola/slimpower-slim
 [link-downloads]: https://packagist.org/packages/matiasnamendola/slimpower-slim
 
-##Example project
+## Example project
 
 Look at [slimpower-slim-example](https://github.com/matiasnamendola/slimpower-slim-example).
