@@ -59,7 +59,7 @@ $app->container->singleton('App\IndexController', function ($container) {
 $app->get('/', 'App\IndexController:index');
 ```
 
-### example controller
+### Example controller
 
 *SlimPower - Slim Controller* will call the controller's `setApp()`, `setRequest()`
 and `setResponse()` methods if they exist and populate appropriately. It will
