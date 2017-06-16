@@ -49,6 +49,8 @@ class Slim extends \Slim\Slim {
             return new Http\ExtendedRequest($c['environment']);
         });
 
+        $app = $this;
+
         // Only invoked if mode is "production"
         $app->configureMode(self::MODE_PROD, function () use ($app) {
             $app->config(array(
@@ -72,6 +74,13 @@ class Slim extends \Slim\Slim {
                 'debug' => true
             ));
         });
+
+        $app->add(new \SlimPower\Slim\Middleware\Json\Middleware($app, array(
+            'json.status' => true,
+            'json.override_error' => true,
+            'json.override_notfound' => true,
+            'json.debug' => ($app->getMode() == self::MODE_DEV || $app->getMode() == self::MODE_TEST)
+        )));
     }
 
     /**
