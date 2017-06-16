@@ -36,6 +36,10 @@ namespace SlimPower\Slim;
  */
 class Slim extends \Slim\Slim {
 
+    const MODE_DEV = 'development';
+    const MODE_PROD = 'production';
+    const MODE_TEST = 'testing';
+
     public function __construct(array $userSettings = array()) {
         parent::__construct($userSettings);
 
@@ -43,6 +47,30 @@ class Slim extends \Slim\Slim {
 
         $this->container->singleton('request', function ($c) {
             return new Http\ExtendedRequest($c['environment']);
+        });
+
+        // Only invoked if mode is "production"
+        $app->configureMode(self::MODE_PROD, function () use ($app) {
+            $app->config(array(
+                'log.enable' => true,
+                'debug' => false
+            ));
+        });
+
+        // Only invoked if mode is "development"
+        $app->configureMode(self::MODE_DEV, function () use ($app) {
+            $app->config(array(
+                'log.enable' => false,
+                'debug' => true
+            ));
+        });
+
+        // Only invoked if mode is "testing"
+        $app->configureMode(self::MODE_TEST, function () use ($app) {
+            $app->config(array(
+                'log.enable' => false,
+                'debug' => true
+            ));
         });
     }
 
