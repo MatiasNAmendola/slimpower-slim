@@ -79,8 +79,13 @@ class Slim extends \Slim\Slim {
             'json.status' => true,
             'json.override_error' => true,
             'json.override_notfound' => true,
-            'json.debug' => ($app->getMode() == self::MODE_DEV || $app->getMode() == self::MODE_TEST)
+            'json.debug' => (!$app->isProd())
         )));
+    }
+
+    public function isProd() {
+        $mode = $this->getMode();
+        return ($mode == self::MODE_PROD);
     }
 
     /**
