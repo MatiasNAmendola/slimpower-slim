@@ -113,5 +113,20 @@ class Net {
         $uri = $protocol . '://' . $host;
         return $uri;
     }
+    
+    /**
+     * Validate IP
+     * @param string $value
+     * @return boolean
+     */
+    public static function validateIP($value) {
+        return preg_match(
+            "/^(25[0-5]|2[0-4][0-9]|1?[0-9]{1,2})(.(25[0-5]|2[0-4][0-9]|1?[0-9]{1,2})){3}$/"
+        ,   $value
+        ) || preg_match(
+            "/^([0-9a-f]|:){1,4}(:([0-9a-f]{0,4})*){1,7}$/i"
+        ,   $value
+        );
+    }
 
 }
